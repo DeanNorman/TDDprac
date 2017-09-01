@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { TodoForm,TodoList } from './components/index';
-import { addTodo, newId, findById, toggleTodo, updateTodo } from './lib/TodoHelpers';
+import { addTodo, newId, findById, toggleTodo, updateTodo, removeTodo } from './lib/TodoHelpers';
+import { pipe, partial } from './lib/utils';
 
 class App extends Component {
   state = {
@@ -19,10 +20,15 @@ class App extends Component {
    this.setState({currentTodo: event.target.value});
   }
 
+  handleRemove = (id, event) => {
+    event.preventDefault()
+    const updatedTodos = removeTodo(this.state.todos, id)
+    this.setState({ todos: updatedTodos})
+  }
+
   handleToggle = (id) => {
-    const todo = findById(id, this.state.todos);
-    const toggled = toggleTodo(todo);
-    const updatedTodos = updateTodo(this.state.todos, toggled);
+    const getUpdatedTodos = pipe(findById, toggleTodo, partial(updateTodo, this.state.todos))
+    const updatedTodos = getUpdatedTodos(id, this.state.todos)
     this.setState({
       todos: updatedTodos,
     })
@@ -70,7 +76,7 @@ class App extends Component {
             handleChange={this.handleChange}
             currentTodo={this.state.currentTodo}
           />
-          <TodoList handleToggle={this.handleToggle} todos={this.state.todos} />
+          <TodoList handleToggle={this.handleToggle} todos={this.state.todos} handleRemove={this.handleRemove}/>
         </div>
       </div>
     );

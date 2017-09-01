@@ -5,8 +5,10 @@ import { partial } from '../lib/utils'
 const TodoListItem = (props) => {
   // const handleToggle = props.handleToggle.bind(null, props.id);
   const handleToggle = partial(props.handleToggle, props.id);
+  const handleRemove = partial(props.handleRemove, props.id);
   return(
     <li key={props.id}>
+      <a href="#">x</a>
       <input type="checkbox"
         onChange={handleToggle}
         defaultChecked={props.isComplete}/> {props.name}
