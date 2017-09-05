@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
-import { TodoForm,TodoList } from './components/index';
+import { TodoForm,TodoList,Footer } from './components/index';
 import { addTodo, newId, findById, toggleTodo, updateTodo, removeTodo } from './lib/TodoHelpers';
 import { pipe, partial } from './lib/utils';
 
@@ -76,8 +76,11 @@ class App extends Component {
             handleChange={this.handleChange}
             currentTodo={this.state.currentTodo}
           />
-          <TodoList handleToggle={this.handleToggle} todos={this.state.todos} handleRemove={this.handleRemove}/>
+          <TodoList handleToggle={this.handleToggle} todos={this.state.todos} 
+          handleRemove={this.handleRemove}/>
+          <Footer />
         </div>
+
       </div>
     );
   }

@@ -8,7 +8,7 @@ const TodoListItem = (props) => {
   const handleRemove = partial(props.handleRemove, props.id);
   return(
     <li key={props.id}>
-      <a href="#">x</a>
+      <a onClick={handleRemove} href="#">x</a>
       <input type="checkbox"
         onChange={handleToggle}
         defaultChecked={props.isComplete}/> {props.name}
