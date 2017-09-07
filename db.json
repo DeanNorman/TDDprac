@@ -8,7 +8,7 @@
     {
       "id": 2,
       "name": "Start Server",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 3,
@@ -18,21 +18,6 @@
     {
       "id": 4,
       "name": "Setup Fetch",
-      "isComplete": false
-    },
-    {
-      "id": 4541,
-      "name": "asd",
-      "isComplete": false
-    },
-    {
-      "id": 8697,
-      "name": "Added New Todo",
-      "isComplete": false
-    },
-    {
-      "id": 903,
-      "name": "Add",
       "isComplete": false
     }
   ]
