@@ -8,7 +8,7 @@
     {
       "id": 2,
       "name": "Start Server",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": 3,

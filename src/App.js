@@ -84,7 +84,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Sandbox Test</h2>
+          <h2>Todo React App</h2>
         </div>
         <div className="Todo-App">
           { this.state.errorMessage && <span className="error">{this.state.errorMessage}</span> }
